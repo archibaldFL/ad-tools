@@ -1,0 +1,120 @@
+{
+    "tasks":{
+       "TVLBridge": {
+            "id":"TVLBridge" ,
+            "name":"跨链桥充值",
+            "interval":5
+        },
+        "ZKBridge": {
+            "id":"ZKBridge" ,
+            "name":"跨链桥充值",
+            "interval":5
+        },
+       "ZKENS": {
+            "id":"ZKENS" ,
+            "name":"",
+            "interval":18
+        },
+        "ETH2USDT":{
+            "id":"ETH2USDT" ,
+            "name":"",
+            "interval":144
+        },
+        "USDT2USDC":{
+            "id":"USDT2USDC" ,
+            "name":"",
+            "interval":6
+        },
+        "USDC2ETH":{
+            "id":"USDC2ETH" ,
+            "name":"",
+            "interval":12
+        },
+        "USDT2ETH":{
+            "id":"USDT2ETH" ,
+            "name":"",
+            "interval":12
+        },
+        "MINTNFT":{
+            "id":"MINTNFT" ,
+            "name":"",
+            "interval":144
+        },
+        "MINTNEXTNFT":{
+            "id":"MINTNEXTNFT" ,
+            "name":"",
+            "interval":144
+        },
+        "TVLORBITER":{
+            "id":"TVLORBITER" ,
+            "name":"",
+            "interval":144
+        },
+        "ORBITER_BACK":{
+            "id":"ORBITER_BACK" ,
+            "name":"",
+            "interval":144
+        }
+    },
+    "groups":{
+        "ETH2USDT2USDC2ETH":{
+            "id":"ETH2USDT2USDC2ETH",
+            "name":"",
+            "tasks":[
+                {
+                    "id":"ETH2USDT" 
+                },
+                {
+                    "id":"USDT2USDC" 
+                },
+                {
+                    "id":"USDC2ETH" 
+                }
+            ]
+        },
+        "ETH2USDT2ETH":{
+            "id":"ETH2USDT2ETH",
+            "name":"",
+            "tasks":[
+                {
+                    "id":"ETH2USDT" 
+                },
+                {
+                    "id":"USDC2ETH" 
+                }
+                           ]
+        },
+        "ORBITERS":{
+            "id":"",
+            "name":"",
+            "tasks":[
+                {
+                    "id":"TVLORBITER" 
+                },
+                {
+                    "id":"ORBITER_BACK" 
+                }
+            ]
+        }
+    },
+    "template":{
+        "mandatory":{
+            "tasks":[
+            "TVLBridge",
+            "ZKBridge",
+            "MINTNFT"
+          ]
+        },
+        "repeatable":{
+        "tasks":{
+            "ETH2USDT2USDC2ETH":0,
+            "ETH2USDT2ETH":0,
+            "MINTNFT":3,
+            "MINTNEXTNFT":1,
+            "ORBITERS":3
+        },
+          "counts":5,
+          "amounts":20
+        }
+    }
+}
