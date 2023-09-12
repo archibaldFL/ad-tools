@@ -1,7 +1,7 @@
 // import {loadJsonFile} from 'load-json-file';
 // import fs from "fs/promises";
 const jsonfile = require('jsonfile')
-
+const crypto = require('crypto');
 // const fs = require('fs');
 const {join} = require("path");
 
@@ -74,9 +74,9 @@ function buildNextTasks(task_template, config,stepped) {
   let repeatable = task_template.template.repeatable;
 
   if (stepped) {
-    // let hash = crypto.createHash("sha256");
-    // hash.update(JSON.stringify(task_template));
-    // let task_hash = hash.digest("hex");
+    let hash = crypto.createHash("sha256");
+    hash.update(JSON.stringify(task_template));
+    let task_hash = hash.digest("hex");
 
 
     try {
@@ -92,7 +92,12 @@ function buildNextTasks(task_template, config,stepped) {
 
     if (task_steps.current_step == 0) {
       target_tasks = task_template.template.mandatory.tasks;
-      task_steps.task_ids = buildRepeatableTaskIds(repeatable);
+
+      if(task_steps.task_hash !== task_hash) {
+        task_steps.task_ids = buildRepeatableTaskIds(repeatable);
+        task_steps.task_hash = task_hash;
+      }
+
     } else {
       target_tasks = buildRepeatableTasks(
         task_steps.task_ids,
