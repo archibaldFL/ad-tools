@@ -1,6 +1,6 @@
 {
   "name": "ad-tools",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "bin": "app.js",
   "main": "app.js",
@@ -14,7 +14,7 @@
     "typescript": "^5.2.2"
   },
   "pkg": {
-    "assets": ["server/index.html","scheduler/tasks.json"],
+    "assets": ["server/index.html"],
     "targets": [
       "node18-macos-x64",
       "node18-linux-x64"

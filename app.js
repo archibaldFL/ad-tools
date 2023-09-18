@@ -13,7 +13,7 @@ const program = new Command();
 program
     .name('ad-tool')
     .description('tools for ad')
-    .version('1.0.3');
+    .version('1.0.4');
 
 
 program.command('server')
@@ -24,6 +24,7 @@ program.command('server')
 program.command('scheduler')
     .description('get net scheduler')
     .argument('<config>', 'config')
+    .option('-p, --project <string>', 'project name','zk')
     .action(getScheduler);
 
 

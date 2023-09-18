@@ -6,15 +6,26 @@ const crypto = require('crypto');
 const {join} = require("path");
 
 // const file_steps ="./tasks_steps.json";
-const file_tasks = join(__dirname,"./tasks.json");
 /**
  *  创建并且打乱任务
  * @param task_template 设置任务生成模板
  * @param stepped 是否每次只生成一步
 
  */
-exports.getScheduler =  (config)=> {
-  let task_template =  jsonfile.readFileSync(file_tasks);
+exports.getScheduler =  (config, {project})=> {
+  console.log(process.cwd());
+  console.log(__dirname)
+  let json = `./${project}.json`
+  let task_template;
+  try{
+     task_template =  jsonfile.readFileSync(join(process.cwd(),json));
+  }
+  catch (err){
+    console.error(err);
+    return;
+  }
+
+
   let {task_steps,target_tasks} = buildNextTasks(task_template,config, true)
   let currentTasks =  realializeTasks(target_tasks, task_template);
   console.log(JSON.stringify({task_steps,currentTasks}))

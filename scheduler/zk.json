@@ -1,0 +1,123 @@
+{
+  "tasks":{
+    "zk-eth2era": {
+      "id":"zk-eth2era" ,
+      "name":"官方跨链桥充值",
+      "interval":1
+    },
+    "zk-lite-mintnft": {
+      "id":"zk-lite-mintnft" ,
+      "name":"",
+      "interval":5
+    },
+    "zk-orb-era2lite": {
+      "id":"zk-orb-era2lite" ,
+      "name":"",
+      "interval":18
+    },
+    "zk-orb-lite2era":{
+      "id":"zk-orb-lite2era" ,
+      "name":"",
+      "interval":144
+    },
+    "zk-syncswap-withdraw":{
+      "id":"zk-syncswap-deposit" ,
+      "name":"",
+      "interval":6
+    },
+    "zk-syncswap-withdraw":{
+      "id":"zk-syncswap-withdraw" ,
+      "name":"",
+      "interval":12
+    },
+    "zk-zksnetwork-domain":{
+      "id":"zk-zksnetwork-domain" ,
+      "name":"",
+      "interval":12
+    },
+    "zk-izumi-deposit":{
+      "id":"zk-izumi-deposit" ,
+      "name":"",
+      "interval":144
+    },
+    "zk-izumi-withdraw":{
+      "id":"zk-izumi-withdraw" ,
+      "name":"",
+      "interval":144
+    },
+    "zk-mav-deposit":{
+      "id":"zk-mav-deposit" ,
+      "name":"",
+      "interval":144
+    },
+    "zk-mav-deposit":{
+      "id":"zk-mav-deposit" ,
+      "name":"",
+      "interval":144
+    }
+  },
+  "groups":{
+    "syncswap":{
+      "id":"syncswap",
+      "name":"",
+      "tasks":[
+        {
+          "id":"zk-syncswap-deposit"
+        },
+        {
+          "id":"zk-syncswap-withdraw"
+        }
+      ]
+    },
+    "izumi":{
+      "id":"izumi",
+      "name":"",
+      "tasks":[
+        {
+          "id":"zk-izumi-deposit"
+        },
+        {
+          "id":"zk-izumi-withdraw"
+        }
+      ]
+    },
+    "mav":{
+      "id":"mav",
+      "name":"",
+      "tasks":[
+        {
+          "id":"zk-mav-deposit"
+        },
+        {
+          "id":"zk-mav-withdraw"
+        }
+      ]
+    },
+    "zksnetwork":{
+      "id":"zksnetwork",
+      "name":"",
+      "tasks":[
+        {
+          "id":"zk-zksnetwork-domain"
+        }
+      ]
+    }
+  },
+  "template":{
+    "mandatory":{
+      "tasks":[
+        "zk-eth2era"
+      ]
+    },
+    "repeatable":{
+      "tasks":{
+        "syncswap":0,
+        "izumi":0,
+        "mav":3,
+        "zksnetwork": 1
+      },
+      "counts":4,
+      "amounts":20
+    }
+  }
+}

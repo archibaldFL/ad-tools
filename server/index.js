@@ -47,7 +47,7 @@ exports.startServer =  (port)=>{
         jsonData.forEach(row => {
             const keys = Object.keys(row);
             const key = row[keys[0]];
-            dataMap.set(key.toString(), row);
+            dataMap.set(key.toString().trim(), row);
         });
 
         res.json({count: dataMap.size});
